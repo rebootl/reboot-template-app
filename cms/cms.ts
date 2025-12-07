@@ -7,7 +7,7 @@ import { createEndpoints } from "../lib/routes.ts";
 const app = express();
 
 // static files
-app.use("/admin/static", express.static("admin/static"));
+app.use("/cms/static", express.static("cms/static"));
 
 // Use the auth app
 app.use(authApp);
@@ -15,8 +15,8 @@ app.use(authApp);
 //
 createEndpoints(
   app,
-  "./admin/routes",
-  "/admin",
+  "./cms/routes",
+  "/cms",
 );
 
 export default app;

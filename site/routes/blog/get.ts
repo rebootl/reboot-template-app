@@ -1,10 +1,15 @@
 import type { Request, Response } from "express";
 
-import { baseTemplate } from "../../templates/base.js";
+import { baseTemplate } from "../../templates/base.ts";
 import locale from "./locale.ts";
 import template from "./template.ts";
 
-export type BlogEntry = { title?: string; content?: string; slug?: string; [k: string]: any };
+export type BlogEntry = {
+  title?: string;
+  content?: string;
+  slug?: string;
+  [k: string]: any;
+};
 
 function getBlogEntries(req: Request) {
   const lang = req.lang || "en";

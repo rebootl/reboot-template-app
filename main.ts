@@ -6,8 +6,8 @@ import bodyParser from "body-parser";
 
 import databaseApp from "./lib/database.ts";
 import { createLanguageApp } from "./lib/language.ts";
-import adminApp from "./admin/admin.ts";
-import exampleApp from "./website-revampit-rework/website.ts";
+import cmsApp from "./cms/cms.ts";
+import exampleApp from "./site/site.ts";
 
 const PORT: number = process.env.PORT ? Number(process.env.PORT) : 3002;
 
@@ -34,7 +34,7 @@ app.use(languageApp);
 // this adds the admin interface under the endpoint '/admin'
 // it provides a login for the site owners and is used to
 // add and manage dynamic content like blog posts etc.
-app.use(adminApp);
+app.use(cmsApp);
 
 // example website app
 app.use(exampleApp);

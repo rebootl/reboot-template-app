@@ -1,15 +1,17 @@
 import type { Request, Response } from "express";
 
-import { baseTemplate } from "../../../templates/base.js";
+import { baseTemplate } from "../../../templates/base.ts";
 
 function getBlogEntry(req: Request) {
-  const lang = req.lang || 'en';
+  const lang = req.lang || "en";
 
   const { slug } = req.params as { slug: string };
 
   try {
-    const stmt = req.db.prepare('SELECT * FROM entries WHERE type = ? AND slug = ? AND draft = 0 AND language = ? LIMIT 1');
-    const entry = stmt.get('blog', slug, lang);
+    const stmt = req.db.prepare(
+      "SELECT * FROM entries WHERE type = ? AND slug = ? AND draft = 0 AND language = ? LIMIT 1",
+    );
+    const entry = stmt.get("blog", slug, lang);
     return entry;
   } catch (error) {
     console.error(`Error fetching blog entry with slug ${slug}:`, error);
