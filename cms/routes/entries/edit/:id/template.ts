@@ -19,14 +19,14 @@ export default (entry: EntryEditData) => {
   const entryId = String(entry.id);
   return html`
     <section class="max-w-3xl mx-auto space-y-6">
-      <header class="space-y-2">
-        <h1 class="text-lg font-bold text-white">Editing Entry</h1>
-      </header>
       <form
-        class="space-y-6 rounded-xl bg-dark-surface/50 border border-dark-border p-6 pt-4"
+        class="space-y-6 rounded-xl bg-dark-surface/50 border border-dark-border p-8 pt-6"
         action="/cms/entries/edit/${entryId}"
         method="POST"
       >
+        <header class="space-y-2">
+          <h1 class="text-2xl font-bold text-white">Editing Entry</h1>
+        </header>
         <div class="space-y-4">
           <label class="space-y-2 block">
             <span class="text-xs text-dark-muted">Title</span>
@@ -34,7 +34,7 @@ export default (entry: EntryEditData) => {
               type="text"
               name="title"
               value="${escapeHtml(entry.title)}"
-              class="w-full rounded-xl border border-dark-border bg-dark-bg/80 px-3 py-2 text-base text-white focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400/50"
+              class="w-full rounded-xl border border-dark-border bg-dark-bg/80 px-4 py-3 text-base text-white focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400/50"
               required
             />
           </label>
@@ -44,7 +44,7 @@ export default (entry: EntryEditData) => {
               type="text"
               name="type"
               value="${escapeHtml(entry.type)}"
-              class="w-full rounded-xl border border-dark-border bg-dark-bg/80 px-3 py-2 text-base text-white focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400/50"
+              class="w-full rounded-xl border border-dark-border bg-dark-bg/80 px-4 py-3 text-base text-white focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400/50"
               required
             />
           </label>
@@ -54,7 +54,7 @@ export default (entry: EntryEditData) => {
 
             <select
               name="private"
-              class="w-full rounded-xl border border-dark-border bg-dark-bg/80 px-3 py-2 text-base text-white focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400/50"
+              class="w-full rounded-xl border border-dark-border bg-dark-bg/80 px-4 py-3 text-base text-white focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400/50"
             >
               <option value="0" ${entry.isPrivate
                 ? ""
@@ -71,7 +71,7 @@ export default (entry: EntryEditData) => {
             <textarea
               name="content"
               rows="8"
-              class="w-full h-80 rounded-2xl border border-dark-border bg-dark-bg/80 px-3 py-3 text-base text-white focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400/50"
+              class="w-full h-80 rounded-2xl border border-dark-border bg-dark-bg/80 px-4 py-3 text-base text-white focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400/50"
             >${escapeHtml(entry.content)}</textarea>
           </div>
         </div>

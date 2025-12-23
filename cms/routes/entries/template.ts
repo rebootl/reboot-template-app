@@ -19,44 +19,44 @@ export type EntryType = {
 export default (locale: EntryLocale, entries: EntryType[]) =>
   html`
     <section class="space-y-6 mx-auto">
-      <header class="space-y-3 text-left">
-        <h1 class="text-lg font-bold text-white">Entries</h1>
-      </header>
-
-      <div class="flex justify-start">
-        <a
-          href="/cms/entries/new"
-          class="inline-flex items-center justify-center rounded-md bg-green-300 px-4 py-2 text-xs font-semibold text-black transition hover:bg-emerald-300"
-        >
-          Add entry
-        </a>
-      </div>
-
       ${entries.length === 0
         ? `<div class="rounded-2xl border border-dark-border bg-dark-surface/50 p-6 text-center text-dark-muted">
         ${locale.emptyState}
       </div>`
         : `
-      <div class="border-b border-dark-border bg-dark-bg shadow-lg overflow-auto">
-        <table class="min-w-full text-sm text-left text-dark-muted">
-          <thead class="bg-dark-surface/50 text-xs text-dark-muted/80">
-            <tr>
-              <th class="px-4 py-3">Type</th>
-              <th class="px-4 py-3">Title</th>
-              <th class="px-4 py-3">${locale.labels.visibilityTitle}</th>
-              <th class="px-4 py-3">${locale.labels.created}</th>
-              <th class="px-4 py-3">${locale.labels.modified}</th>
-              <th class="px-4 py-3">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            ${
+      <div class="rounded-2xl border border-dark-border bg-dark-surface/50 p-8 pt-6">
+        <header class="space-y-4 text-left">
+          <div class="flex justify-between items-center mb-6">
+            <h1 class="text-2xl font-bold text-white">Entries</h1>
+            <a
+              href="/cms/entries/new"
+              class="inline-flex items-center justify-center rounded-md bg-green-300 px-4 py-2 text-xs font-semibold text-black transition hover:bg-emerald-300"
+            >
+              Add entry
+            </a>
+          </div>
+        </header>
+
+        <div class="overflow-auto border-b border-dark-border bg-dark-bg">
+          <table class="min-w-full text-sm text-left text-dark-muted">
+            <thead class="bg-dark-surface text-xs text-dark-muted/80">
+              <tr>
+                <th class="px-4 py-3">Type</th>
+                <th class="px-4 py-3">Title</th>
+                <th class="px-4 py-3">${locale.labels.visibilityTitle}</th>
+                <th class="px-4 py-3">${locale.labels.created}</th>
+                <th class="px-4 py-3">${locale.labels.modified}</th>
+                <th class="px-4 py-3">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${
           entries
             .map((entry) => {
               const normalized = (entry.type || "").toLowerCase();
               const tagClasses = badgeStyles[normalized] ?? badgeStyles.default;
               return `
-                  <tr class="border-t border-dark-border/70 hover:bg-dark-bg/50">
+                  <tr class="border-t bg-dark-surface/50 border-dark-border/70 hover:bg-dark-surface/70">
                     <td class="px-4 py-4">
                       <span class="inline-flex items-center px-2 py-1 text-[0.65rem] rounded-md ${tagClasses}">
                         ${normalized || "entry"}
@@ -79,9 +79,9 @@ export default (locale: EntryLocale, entries: EntryType[]) =>
             })
             .join("")
         }
-          </tbody>
-        </table>
+            </tbody>
+          </table>
+        </div>
       </div>
     `}
-    </section>
   `;
