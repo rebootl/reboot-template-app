@@ -58,9 +58,9 @@ export default (content: string, req: Request) => {
           theme: {
             extend: {
               colors: {
-                 dark: {
-                   bg: "#0f1419",
-                   surface: "#252a35",
+                dark: {
+                  bg: "#0f1419",
+                  surface: "#252a35",
 
                   border: "#2d3748",
                   text: "#fff",
@@ -104,7 +104,7 @@ export default (content: string, req: Request) => {
         </header>
 
         <main class="flex-1 w-full bg-dark-bg/40">
-          <div class="px-6 py-6">
+          <div class="px-10 py-10">
             ${messageKey
               ? `
           <div class="max-w-4xl mx-auto space-y-8">

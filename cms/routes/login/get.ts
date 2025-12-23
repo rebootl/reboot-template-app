@@ -76,7 +76,7 @@ export default (req: Request, res: Response) => {
         <div class="flex justify-center">
           <button
             type="submit"
-            class="w-full rounded-xl bg-green-300 px-5 py-3 font-medium text-black uppercase hover:bg-emerald-300 focus:outline-none focus:ring-2 focus:ring-emerald-300/60"
+            class="w-full rounded-xl bg-green-300 px-5 py-3 font-medium text-black hover:bg-emerald-300 focus:outline-none focus:ring-2 focus:ring-emerald-300/60"
           >
             ${locale[currentLanguage].login.buttonText}
           </button>
