@@ -2,13 +2,13 @@ import process from "node:process";
 
 import express from "express";
 
-import type { Request as _Request, Response } from "express";
+import type { NextFunction, Request, Response } from "express";
 
 // Extend Request interface to include lang property
 declare global {
   namespace Express {
     interface Request {
-      lang?: "en" | "de";
+      lang: "en" | "de";
     }
   }
 }
@@ -16,7 +16,7 @@ declare global {
 // Factory function to create language app with custom cookie name and endpoint
 export function createLanguageApp(
   cookieName: string = "lang",
-  endpointPath: string = "/set-lang",
+  _endpointPath: string = "/set-lang",
 ) {
   const app = express();
 
@@ -33,7 +33,7 @@ export function createLanguageApp(
   }
 
   // Language middleware
-  app.use((req, res, next) => {
+  app.use((req: Request, res: Response, next: NextFunction) => {
     let language = req.cookies?.[cookieName];
     if (language !== "en" && language !== "de") {
       language = "en";
@@ -44,14 +44,14 @@ export function createLanguageApp(
   });
 
   // Endpoint to set language cookie
-  app.get(endpointPath, (req, res) => {
+  app.use((req: Request, res: Response) => {
     // console.log('Setting language cookie');
     const lang = req.query.lang || "en";
     if (lang !== "en" && lang !== "de") {
       return res.status(400).send("Invalid language");
     }
     setLanguageCookie(res, lang);
-    const ref = req.query.ref || "/";
+    const ref = req.get("Referrer") || "/";
     res.redirect(ref);
   });
 
