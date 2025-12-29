@@ -6,8 +6,9 @@
     "body-parser": "npm:body-parser@1.19.0",
     "@tailwindcss/cli": "npm:@tailwindcss/cli@4.1.14", // dev
     "tailwindcss": "npm:tailwindcss@4.1.14", // dev
-    "uuid": "npm:uuid@13.0.0"
-  },
+    "uuid": "npm:uuid@13.0.0",
+    "marked": "npm:marked@^17.0.1"
+  }
   "tasks": {
     "dev": "deno run --allow-all --watch main.ts",
     "devtwadmin": "cd ./cms/ && /usr/bin/tailwindcss -o ./static/tailwind.css --watch"
