@@ -11,25 +11,8 @@ export const baseTemplate = (content: string /*, req: Request */) => {
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>reboot.li - Cem's Personal Website</title>
-        <script src="https://cdn.tailwindcss.com"></script>
-        <script>
-        tailwind.config = {
-          darkMode: 'class',
-          theme: {
-            extend: {
-              colors: {
-                dark: {
-                  bg: '#0f1419',
-                  surface: '#1a1f2e',
-                  border: '#2d3748',
-                  text: '#fff',
-                  muted: '#a1a1aa',
-                },
-              },
-            },
-          },
-        };
-        </script>
+      	<link rel="stylesheet" href="/static/style.css"></link>
+      	<link rel="stylesheet" href="/static/tailwind.css"></link>
         <style>
         .pride-text {
           color: #fff;
