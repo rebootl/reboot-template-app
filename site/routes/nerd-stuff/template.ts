@@ -10,7 +10,7 @@ export type Entry = {
 
 export default (entries: Entry[], entry: Entry) =>
   html`
-    <div class="md-content mb-8">
+    <div class="md-content mb-8 mt-6">
       ${marked.parse(entry.content || "") as string}
     </div>
     <ul class="space-y-2">
@@ -27,7 +27,7 @@ export default (entries: Entry[], entry: Entry) =>
                 >
                   <a
                     href="/nerd-stuff/${String(entry.id)}"
-                    class="text-green-300 hover:text-emerald-300 transition-colors duration-200"
+                    class="text-green-300 hover:underline"
                   >
                     ${entry.title}
                   </a>

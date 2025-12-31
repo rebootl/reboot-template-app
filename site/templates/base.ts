@@ -23,7 +23,7 @@ export const baseTemplate = (title: string, content: string, modificationDate: s
               <li>
                 <a
                   href="/"
-                  class="text-green-300 hover:text-emerald-300 transition-colors duration-200 flex items-center gap-2 group"
+                  class="text-green-300 flex items-center gap-2 group"
                 >
                   <svg
                     class="w-5 h-5"
@@ -44,7 +44,7 @@ export const baseTemplate = (title: string, content: string, modificationDate: s
               <li>
                 <a
                   href="/nerd-stuff"
-                  class="text-green-300 hover:text-emerald-300 transition-colors duration-200 flex items-center gap-2 group"
+                  class="text-green-300 flex items-center gap-2 group"
                 >
                   <svg
                     class="w-5 h-5"
@@ -65,7 +65,7 @@ export const baseTemplate = (title: string, content: string, modificationDate: s
               <li>
                 <a
                   href="/cheat-sheets"
-                  class="text-green-300 hover:text-emerald-300 transition-colors duration-200 flex items-center gap-2 group"
+                  class="text-green-300 flex items-center gap-2 group"
                 >
                   <svg
                     class="w-5 h-5"
@@ -86,7 +86,7 @@ export const baseTemplate = (title: string, content: string, modificationDate: s
               <li>
                 <a
                   href="/links"
-                  class="text-green-300 hover:text-emerald-300 transition-colors duration-200 flex items-center gap-2 group"
+                  class="text-green-300 flex items-center gap-2 group"
                 >
                   <svg
                     class="w-5 h-5"
@@ -111,13 +111,13 @@ export const baseTemplate = (title: string, content: string, modificationDate: s
         <main class="max-w-4xl mx-auto px-6 py-12 flex-1">
           <article class="">
             <div class="flex-1">
-              <h1 class="text-4xl font-bold mb-6 text-white">
+              <h1 class="text-4xl font-bold text-white mb-2">
                 ${title}
               </h1>
               ${content}
-                <div class="mt-8 pt-6 border-t border-dark-border text-sm text-dark-muted">
+              <div class="mt-8 pt-6 border-t border-dark-border text-sm text-dark-muted">
                 <p>Last modified: <time datetime="${modificationDate}">${formatDate(modificationDate)}</time></p>
-               </div>
+              </div>
 
             </div>
           </article>
@@ -130,7 +130,7 @@ export const baseTemplate = (title: string, content: string, modificationDate: s
               <p class="text-sm">
                 <a
                   href="/privacy-policy"
-                  class="text-green-300 hover:text-emerald-300 transition-colors duration-200"
+                  class="text-green-300"
                 >Privacy Policy</a>
               </p>
               <p class="text-dark-muted text-sm">
