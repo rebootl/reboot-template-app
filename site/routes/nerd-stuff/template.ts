@@ -1,22 +1,23 @@
+import { marked } from "marked";
 import { html } from "../../../lib/helper.ts";
 
-export type NerdStuffEntry = {
+export type Entry = {
   id: number;
   title: string;
+  content?: string;
   created_at: string;
 };
 
-export default (entries: NerdStuffEntry[]) =>
+export default async (entries: Entry[], entry: Entry) =>
   html`
     <!-- Main column -->
     <div class="flex-1">
       <h1 class="text-4xl font-bold mb-6 text-white">
         Nerd Stuff
       </h1>
-      <p class="text-dark-text leading-relaxed mb-4">
-        Here I’m posting little live demos and experiments as well as notes about
-        nerdy stuff. For example about the tech I’m using.
-      </p>
+      <div class="md-content mb-8">
+        ${await marked.parse(entry.content || "")}
+      </div>
       <ul class="space-y-2">
         ${entries.length === 0
           ? html`

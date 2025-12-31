@@ -6,9 +6,23 @@ import template from "./template.ts";
 export type Entry = {
   id: number;
   title: string;
+  content?: string;
   created_at: string;
   [k: string]: unknown;
 };
+
+function getContent(req: Request) {
+  try {
+    const stmt = req.db.prepare(
+      "SELECT title, content, modified_at FROM entries WHERE type = ? AND private = 0 LIMIT 1",
+    );
+    const entry = stmt.get("nerdstuff-list");
+    return entry as Entry;
+  } catch (error) {
+    console.error("Error fetching entry:", error);
+    return {} as Entry;
+  }
+}
 
 function getEntries(req: Request) {
   try {
@@ -23,10 +37,11 @@ function getEntries(req: Request) {
   }
 }
 
-export default (req: Request, res: Response) => {
+export default async (req: Request, res: Response) => {
+  const entry = getContent(req);
   const entries = getEntries(req);
 
-  const content = template(entries);
-  const html = baseTemplate(content);
+  const content = await template(entries, entry);
+  const html = baseTemplate(entry.title, content);
   res.send(html);
 };

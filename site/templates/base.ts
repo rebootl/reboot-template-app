@@ -1,6 +1,6 @@
 import { html } from "../../lib/helper.ts";
 
-export const baseTemplate = (content: string /*, req: Request */) => {
+export const baseTemplate = (title: string, content: string) => {
   // const ref = req.path || '';
   // const currentLanguage = req.lang || 'en';
 
@@ -10,7 +10,7 @@ export const baseTemplate = (content: string /*, req: Request */) => {
       <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>reboot.li - Cem's Personal Website</title>
+        <title>${title} - reboot.li</title>
       	<link rel="stylesheet" href="/static/style.css"></link>
       	<link rel="stylesheet" href="/static/tailwind.css"></link>
       </head>
