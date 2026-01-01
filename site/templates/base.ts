@@ -1,6 +1,10 @@
-import { html, formatDate } from "../../lib/helper.ts";
+import { formatDate, html } from "../../lib/helper.ts";
 
-export const baseTemplate = (title: string, content: string, modificationDate: string) => {
+export const baseTemplate = (
+  title: string,
+  content: string,
+  modificationDate: string,
+) => {
   // const ref = req.path || '';
   // const currentLanguage = req.lang || 'en';
 
@@ -11,8 +15,8 @@ export const baseTemplate = (title: string, content: string, modificationDate: s
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>${title} - reboot.li</title>
-      	<link rel="stylesheet" href="/static/style.css"></link>
-      	<link rel="stylesheet" href="/static/tailwind.css"></link>
+        <link rel="stylesheet" href="/static/style.css" />
+        <link rel="stylesheet" href="/static/tailwind.css" />
       </head>
       <body class="bg-dark-bg text-dark-text min-h-screen flex flex-col">
         <header
@@ -115,10 +119,15 @@ export const baseTemplate = (title: string, content: string, modificationDate: s
                 ${title}
               </h1>
               ${content}
-              <div class="mt-8 pt-6 border-t border-dark-border text-sm text-dark-muted">
-                <p>Last modified: <time datetime="${modificationDate}">${formatDate(modificationDate)}</time></p>
+              <div
+                class="mt-8 pt-6 border-t border-dark-border text-sm text-dark-muted"
+              >
+                <p>
+                  Last modified: <time datetime="${modificationDate}">${formatDate(
+                    modificationDate,
+                  )}</time>
+                </p>
               </div>
-
             </div>
           </article>
         </main>
@@ -134,9 +143,9 @@ export const baseTemplate = (title: string, content: string, modificationDate: s
                 >Privacy Policy</a>
               </p>
               <p class="text-dark-muted text-sm">
-                Built using <span class="font-mono text-indigo-300"
-                >Deno</span>, <span class="font-mono text-indigo-300"
-                >sqlite</span> and <span class="font-mono text-indigo-300"
+                Built using <span class="font-mono text-indigo-300">Deno</span>,
+                <span class="font-mono text-indigo-300">sqlite</span> and <span
+                  class="font-mono text-indigo-300"
                 >tailwindcss.</span>
               </p>
               <p class="text-sm">

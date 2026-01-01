@@ -1,17 +1,9 @@
 import type { Request, Response } from "express";
 
 import { baseTemplate } from "../../templates/base.ts";
-import template from "./template.ts";
+import template, { type Entry } from "./template.ts";
 
-export type Entry = {
-  id: number;
-  title: string;
-  content?: string;
-  modified_at: string;
-  [k: string]: unknown;
-};
-
-function getContent(req: Request) {
+export function getContent(req: Request) {
   try {
     const stmt = req.db.prepare(
       "SELECT title, content, modified_at FROM entries WHERE type = ? AND private = 0 LIMIT 1",
@@ -24,7 +16,7 @@ function getContent(req: Request) {
   }
 }
 
-function getEntries(req: Request) {
+export function getEntries(req: Request) {
   try {
     const stmt = req.db.prepare(
       "SELECT id, title, modified_at FROM entries WHERE type = ? AND private = 0 ORDER BY created_at DESC",

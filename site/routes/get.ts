@@ -54,7 +54,6 @@ const template = (mainEntry: Entry, newsEntry: Entry) =>
         />
       </div>
     </div>
-    </div>
   `;
 
 export default (req: Request, res: Response) => {
